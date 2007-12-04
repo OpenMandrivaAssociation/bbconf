@@ -13,7 +13,7 @@ Source3:	%{name}-48x48.png.bz2
 Group:		Graphical desktop/Other
 License:	GPL
 BuildRequires:	qt3-devel
-BuildRequires:	XFree86-devel
+BuildRequires:	X11-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 #Obsoletes:	bbkeysconf

@@ -17,6 +17,7 @@ BuildRequires:	X11-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 #Obsoletes:	bbkeysconf
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 Summary:	Bbconf
 
 %description

@@ -51,13 +51,6 @@ make install-strip DESTDIR=$RPM_BUILD_ROOT
 rm $RPM_BUILD_ROOT/usr/doc/bbconf/*
 
 # Menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat >$RPM_BUILD_ROOT%{_menudir}/%{name} <<EOF
-?package(%{name}): command="%{_bindir}/%{name}" needs="x11" \
-icon="%{name}.png" section="System/Configuration/Other" \
-title="Bbconf" longtitle="Bbconf is a complete GUI config tool for blackbox" \
-xdg="true"
-EOF
   
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
@@ -96,7 +89,6 @@ rm -rf $RPM_BUILD_ROOT
 %_bindir/*
 %_libdir/%name
 %_mandir/man1/*
-%_menudir/*
 %{_datadir}/applications/mandriva-%{name}.desktop
 %_iconsdir/%{name}.png
 %_liconsdir/%{name}.png

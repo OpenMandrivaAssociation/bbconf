@@ -1,6 +1,6 @@
 %define name		bbconf
 %define version		1.10
-%define release		%mkrel 7
+%define release		%mkrel 8
 
 Name:		%{name}
 Version:	%{version}
@@ -10,8 +10,9 @@ Source:		http://bbconf.sourceforge.net/code/%{name}-%{version}.tar.bz2
 Source1:	%{name}-16x16.png.bz2
 Source2:	%{name}-32x32.png.bz2
 Source3:	%{name}-48x48.png.bz2
+Patch0:		bbconf-1.10-gcc43.patch
 Group:		Graphical desktop/Other
-License:	GPL
+License:	GPLv2+
 BuildRequires:	qt3-devel
 BuildRequires:	X11-devel
 BuildRequires:	libjpeg-devel
@@ -31,29 +32,23 @@ keybindings, blackbox's menus, and blackbox's style files/themes.
 %prep
 
 %setup -q -n %{name}-%{version}
-./configure 	--prefix=%_prefix \
-		--exec-prefix=%_prefix \
-		--bindir=%_bindir \
-		--datadir=%_datadir \
-		--libdir=%_libdir \
-		--libexecdir=%_libdir \
-		--mandir=%_mandir \
-
+%patch0 -p1
 
 %build
+%configure_qt3
 %make
 
 %install
-mkdir -p $RPM_BUILD_ROOT
-make install-strip DESTDIR=$RPM_BUILD_ROOT
+mkdir -p %{buildroot}
+make install-strip DESTDIR=%{buildroot}
 
 # rm unpackaged files.
-rm $RPM_BUILD_ROOT/usr/doc/bbconf/*
+rm %{buildroot}/usr/doc/bbconf/*
 
 # Menu
   
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=Bbconf
 Comment=Bbconf is a complete GUI config tool for blackbox
@@ -66,12 +61,12 @@ Categories=X-MandrivaLinux-System-Configuration-Other;Settings;
 EOF
 
 #icon
-install -d $RPM_BUILD_ROOT/%{_iconsdir}
-install -d $RPM_BUILD_ROOT/%{_miconsdir}
-install -d $RPM_BUILD_ROOT/%{_liconsdir}
-bzcat %{SOURCE1} > $RPM_BUILD_ROOT/%{_miconsdir}/%{name}.png
-bzcat %{SOURCE2} > $RPM_BUILD_ROOT/%{_iconsdir}/%{name}.png
-bzcat %{SOURCE3} > $RPM_BUILD_ROOT/%{_liconsdir}/%{name}.png
+install -d %{buildroot}/%{_iconsdir}
+install -d %{buildroot}/%{_miconsdir}
+install -d %{buildroot}/%{_liconsdir}
+bzcat %{SOURCE1} > %{buildroot}/%{_miconsdir}/%{name}.png
+bzcat %{SOURCE2} > %{buildroot}/%{_iconsdir}/%{name}.png
+bzcat %{SOURCE3} > %{buildroot}/%{_liconsdir}/%{name}.png
  
 %if %mdkversion < 200900
 %post
@@ -84,7 +79,7 @@ bzcat %{SOURCE3} > $RPM_BUILD_ROOT/%{_liconsdir}/%{name}.png
 %endif
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)

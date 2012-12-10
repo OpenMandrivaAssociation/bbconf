@@ -1,0 +1,24 @@
+diff -urN bbconf-1.10-orig/bbconf/plugins/keybindings/my_kaccel.cpp bbconf-1.10-patched/bbconf/plugins/keybindings/my_kaccel.cpp
+--- bbconf-1.10-orig/bbconf/plugins/keybindings/my_kaccel.cpp	2002-05-28 02:04:37.000000000 +1100
++++ bbconf-1.10-patched/bbconf/plugins/keybindings/my_kaccel.cpp	2012-11-24 23:36:26.660019501 +1100
+@@ -41,7 +41,7 @@
+ #include <X11/Xlib.h>
+ #include <X11/keysymdef.h>
+ #include <ctype.h>
+-#include <iostream.h>
++#include <iostream>
+ 
+ //-------------------------------------------------------------------
+ 
+diff -urN bbconf-1.10-orig/bbconf/plugins/keybindings/my_kkeydialog.cpp bbconf-1.10-patched/bbconf/plugins/keybindings/my_kkeydialog.cpp
+--- bbconf-1.10-orig/bbconf/plugins/keybindings/my_kkeydialog.cpp	2002-05-28 02:04:51.000000000 +1100
++++ bbconf-1.10-patched/bbconf/plugins/keybindings/my_kkeydialog.cpp	2012-11-24 23:36:46.932058587 +1100
+@@ -36,7 +36,7 @@
+ #include <qdrawutil.h>
+ 
+ #include <qlabel.h>
+-#include <iostream.h>
++#include <iostream>
+ 
+ #include "my_kaccel.h"
+ #include "my_kkeybutton.h"

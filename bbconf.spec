@@ -1,7 +1,7 @@
 Summary:	A complete GUI blackbox configuration tool
 Name:		bbconf
 Version:	1.10
-Release:	5
+Release:	6
 Group:		Graphical desktop/Other
 License:	GPL
 URL:		http://bbconf.sourceforge.net/

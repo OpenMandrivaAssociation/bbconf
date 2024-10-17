@@ -4,7 +4,7 @@ Version:	1.10
 Release:	6
 Group:		Graphical desktop/Other
 License:	GPL
-URL:		http://bbconf.sourceforge.net/
+URL:		https://bbconf.sourceforge.net/
 Source:		http://bbconf.sourceforge.net/code/%{name}-%{version}.tar.bz2
 Source1:	%{name}-16x16.png.bz2
 Source2:	%{name}-32x32.png.bz2

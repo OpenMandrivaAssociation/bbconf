@@ -10,6 +10,11 @@ Source1:	%{name}-16x16.png.bz2
 Source2:	%{name}-32x32.png.bz2
 Source3:	%{name}-48x48.png.bz2
 Patch0:		bbconf-1.10-gcc4.7.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	jpeg-devel
 BuildRequires:	qt3-devel
 BuildRequires:	pkgconfig(libpng)
